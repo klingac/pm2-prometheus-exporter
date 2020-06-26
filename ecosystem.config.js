@@ -17,7 +17,7 @@ module.exports = {
     production: {
       host: "localhost",
       path: "/srv/new-pm2-exporter",
-      repo: "git@github.com:klingac/pm2-prometheus-exporter.git",
+      repo: "https://github.com/klingac/pm2-prometheus-exporter.git",
       ref: "origin/fix_host_port_config"
     }
   }
