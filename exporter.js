@@ -6,7 +6,7 @@ const logger = require('pino')();
 const io = require('@pm2/io');
 
 const prefix = 'pm2';
-const labels = ['id', 'name', 'instance', 'interpreter', 'node_version'];
+const labels = ['id', 'name', 'instance', 'interpreter', 'node_version', 'pid', 'ismodule'];
 const map = [
   ['up', 'Is the process running'],
   ['cpu', 'Process cpu usage'],
@@ -46,7 +46,9 @@ function metrics() {
           name: p.name,
           instance: p.pm2_env.NODE_APP_INSTANCE,
           interpreter: p.pm2_env.exec_interpreter,
-          node_version: p.pm2_env.node_version
+          node_version: p.pm2_env.node_version,
+          pid: p.pid,
+          ismodule: p.pm2_env.axm_options.isModule
         };
 
         const values = {
